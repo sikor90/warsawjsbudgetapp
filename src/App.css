@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.Transaction-card {
+  position: relative;
+}
+.Transaction-card__Remove {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 22px;
+  color: red;
+  cursor: pointer;
+}

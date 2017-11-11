@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-  HelloStateless, HelloStateful, Counter, TransactionCard
+  HelloStateless, HelloStateful, Counter, TransactionCard, TransactionList
 } from './components';
 
 import logo from './logo.svg';
@@ -33,6 +33,10 @@ class App extends Component {
       }
     ]
   }
+  handleRemoveTransaction = ({ id }) => {
+    const { transactions } = this.state;
+    this.setState({ transactions: transactions.filter(transaction => transaction.id !== id) });
+  }
   render() {
     const { transactions } = this.state;
     return (
@@ -47,7 +51,10 @@ class App extends Component {
         <HelloStateful name="Bartek"/>
         <HelloStateless name="Bartek"/>
         <Counter />
-        <TransactionCard item={transactions[2]} />
+        <TransactionList
+          items={transactions}
+          onRemoveTransaction={this.handleRemoveTransaction}
+        />
       </div>
     );
   }
